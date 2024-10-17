@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "products": [
+      {
+        "title": "Gorra",
+        "description": "Gorra deportiva",
+        "price": 1500,
+        "thumbnail": "gorra.jpg",
+        "code": "GOR123",
+        "stock": 8
+      }
+    ]
+  }
+]

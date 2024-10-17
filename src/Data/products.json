@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Camisa",
+    "description": "Camisa de algodón",
+    "price": 2500,
+    "thumbnail": "camisa.jpg",
+    "code": "ABC123",
+    "stock": 10
+  },
+  {
+    "id": 2,
+    "title": "Pantalón",
+    "description": "Pantalón Jogging",
+    "price": 4000,
+    "thumbnail": "pantalon.jpg",
+    "code": "XYZ456",
+    "stock": 5
+  }
+]
