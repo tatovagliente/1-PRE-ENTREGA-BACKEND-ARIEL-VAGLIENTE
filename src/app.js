@@ -4,7 +4,7 @@ const { ProductManager} = require("./Dao/ProductManager");
 
 const PORT = 8080
 
-const productManager = new ProductManager ()
+const productManager = new ProductManager ("./src/Data/products.json")
 
 const app = express()
 

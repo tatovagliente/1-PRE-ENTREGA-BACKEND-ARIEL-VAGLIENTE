@@ -1,4 +1,4 @@
-const fs = require('fs').promises;
+const fs = require('fs');
 
 //let rutaArchivo = "./src/Data/products.json";
 
@@ -47,14 +47,12 @@ class ProductManager {
     }
 
     
-    async getProducts() {
-        try {
-            console.log("Leyendo desde el archivo:", this.#path);
-            const data = await fs.readFile(this.#path, 'utf-8');
-            return JSON.parse(data);
-        } catch (error) {
-            console.log("Error leyendo el archivo:", error);
-            return [];
+    async getProducts(){
+        if(fs.existsSync(this.#path)){
+            console.log("ingreso al if (encontro el archivo...)")
+            return JSON.parse(await fs.promises.readFile(this.#path, {encoding:"utf-8"}))
+        }else{
+            return []
         }
     }
 
