@@ -1,8 +1,7 @@
-const fs = require('fs');
-
+import fs from "fs";
 //let rutaArchivo = "./src/Data/products.json";
 
-class ProductManager {
+export class ProductManager {
 
     #path="";
     constructor(rutaArchivo) {
@@ -72,4 +71,4 @@ class ProductManager {
     }
 }
 
-module.exports={ProductManager}
+// module.exports={ProductManager}

@@ -1,6 +1,6 @@
-const fs = require('fs').promises;
+import fs from "fs";
 
-class CartManager {
+export class CartManager {
     #path = "";
     constructor(rutaArchivoCart) {
         this.#path = rutaArchivoCart;
@@ -44,4 +44,4 @@ class CartManager {
     }
 }
 
-module.exports = { CartManager };
+// module.exports = { CartManager };
