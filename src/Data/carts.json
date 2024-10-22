@@ -9,7 +9,31 @@
         "thumbnail": "gorra.jpg",
         "code": "GOR123",
         "stock": 8
+      },
+      {
+        "product": 2,
+        "quantity": 2
+      },
+      {
+        "product": 1,
+        "quantity": 1
+      },
+      {
+        "product": 4,
+        "quantity": 1
       }
     ]
+  },
+  {
+    "id": 1,
+    "products": []
+  },
+  {
+    "id": 1,
+    "products": []
+  },
+  {
+    "id": 1,
+    "products": []
   }
 ]

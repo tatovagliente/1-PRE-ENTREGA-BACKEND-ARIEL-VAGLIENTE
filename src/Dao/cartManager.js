@@ -7,6 +7,7 @@ export class CartManager {
         this.idInicial = 1;
     }
 
+    
     async createCart() {
         const carts = await this.getCarts();
         const newCart = {
@@ -19,19 +20,10 @@ export class CartManager {
         return newCart;
     }
 
-    async addProductToCart(cartId, product) {
-        const carts = await this.getCarts();
-        const cart = carts.find((c) => c.id === cartId);
-        if (!cart) {
-            throw new Error("Carrito no encontrado");
-        }
-        cart.products.push(product);
-        await this.saveCarts(carts);
-    }
-
+    
     async getCarts() {
         try {
-            const data = await fs.readFile(this.#path, 'utf-8');
+            const data = await fs.promises.readFile(this.#path, 'utf-8');
             return JSON.parse(data);
         } catch (error) {
             console.log("Error leyendo el archivo:", error);
@@ -39,9 +31,40 @@ export class CartManager {
         }
     }
 
+    
     async saveCarts(carts) {
-        await fs.writeFile(this.#path, JSON.stringify(carts, null, 2));
+        await fs.promises.writeFile(this.#path, JSON.stringify(carts, null, 2));
+    }
+
+    
+    async getCartById(cartId) {
+        const carts = await this.getCarts();
+        const cart = carts.find((c) => c.id === cartId);
+        if (cart) {
+            return cart; 
+        } else {
+            return null; 
+        }
+    }
+
+    
+    async addProductToCart(cartId, productId) {
+        const carts = await this.getCarts();
+        const cart = carts.find((c) => c.id === cartId);
+        
+        if (!cart) {
+            throw new Error("Carrito no encontrado");
+        }
+
+        const existingProduct = cart.products.find((p) => p.product === productId);
+    
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            cart.products.push({ product: productId, quantity: 1 });
+        }
+    
+        await this.saveCarts(carts);
+        return cart;
     }
 }
-
-// module.exports = { CartManager };
